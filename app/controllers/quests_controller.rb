@@ -16,6 +16,10 @@ class QuestsController < ApplicationController
   def create
     @quest = current_user.quests.build(params[:quest])
     @quest.save!
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
     
 end
