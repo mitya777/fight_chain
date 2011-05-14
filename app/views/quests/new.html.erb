@@ -1,0 +1,27 @@
+<h1>Create Quest</h1>
+
+<%= form_for @quest  do |f| %>
+
+  <%= f.fields_for :inspiration do |iform| %>
+    <%= iform.label :content, "Inspiration:" %>
+    <%= iform.text_field :content %>
+  <% end %>
+
+  <br />
+ 
+  <%= f.fields_for :question do |qform| %>
+    <%= qform.label :content, "Question:" %>
+    <%= qform.text_field :content %>
+  <% end %>
+
+  <br />
+
+  <%= f.fields_for :answer do |aform| %>
+    <%= aform.label :content, "Answer:" %>
+    <%= aform.text_field :content %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Create Quest" %>
+  </div>
+<% end %>

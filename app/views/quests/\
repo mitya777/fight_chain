@@ -80,29 +80,15 @@ class User < ActiveRecord::Base
   end
   
   def inspirations
-    inspirations = []
-    quests.map do |q|
-      inspirations << q.inspiration
+    quests.map do |quest|
+      if quest.inspiration != nil then quest.inspiration end
     end
-    inspirations.compact.reject(&:blank?)
   end
-
 
   def questions
-    questions = []
-    quests.map do |q|
-      questions << q.question
-    end
-    questions.compact.reject(&:blank?)
   end
 
-
   def answers
-    answers = []
-    quests.map do |q|
-      answers << q.answer
-    end
-    answers.compact.reject(&:blank?)
   end
 
   private
