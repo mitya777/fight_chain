@@ -14,20 +14,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
 
-  has_many :microposts, :dependent => :destroy
-  has_many :relationships, :foreign_key => "follower_id",
-                           :dependent => :destroy
-  has_many :following, :through => :relationships, :source => :followed
-  has_many :reverse_relationships, :foreign_key => "followed_id",
-                                   :class_name => "Relationship",
-                                   :dependent => :destroy
-  has_many :followers, :through => :reverse_relationships, :source => :follower
-
-  #Knovigator
-  has_many :quests, :dependent => :destroy
-#  has_many :inspirations, :through => :quests, :source => :inspiration
-#  has_many :questions, :through => :quests, :source => :question
-#  has_many :answers, :through => :quests, :source => :answer
+  has_many :videos
 
   email_regex =/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -59,51 +46,6 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
 
-  def follow!(followed)
-    relationships.create!(:followed_id => followed.id)
-  end
-
-  def following?(followed)
-    relationships.find_by_followed_id(followed)
-  end
-
-  def unfollow!(followed)
-    relationships.find_by_followed_id(followed).destroy
-  end
-
-  def feed
-    Micropost.from_users_followed_by(self)
-  end
-
-  def quest_feed
-    self.quests
-  end
-  
-  def inspirations
-    inspirations = []
-    quests.map do |q|
-      inspirations << q.inspiration
-    end
-    inspirations.compact.reject(&:blank?)
-  end
-
-
-  def questions
-    questions = []
-    quests.map do |q|
-      questions << q.question
-    end
-    questions.compact.reject(&:blank?)
-  end
-
-
-  def answers
-    answers = []
-    quests.map do |q|
-      answers << q.answer
-    end
-    answers.compact.reject(&:blank?)
-  end
 
   private
 

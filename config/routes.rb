@@ -1,4 +1,12 @@
 SampleApp::Application.routes.draw do
+  get "videos/show"
+
+  get "videos/new"
+
+  get "videos/create"
+
+  get "videos/destroy"
+
   get "quests/new"
 
   get "quests/create"
