@@ -5,20 +5,20 @@ namespace :db do
 #    require 'faker'
     Rake::Task['db:reset'].invoke
     make_users
-    make_microposts
-    make_relationships
+    make_techniques
+    make_technique_relationships
   end
 end
 
 def make_users
-  admin = User.create!(:name => "Example User",
-                       :email => "example@railstutorial.org",
+  admin = User.create!(:name => "Dmitriy Fabrikant",
+                       :email => "mityaf@gmail.com",
                        :password => "foobar",
                        :password_confirmation => "foobar")
   admin.toggle!(:admin)
-  99.times do |n|
+  25.times do |n|
     name  = Faker::Name.name
-    email = "example-#{n+1}@railstutorial.org"
+    email = Faker::Internet.email
     password  = "password"
     User.create!(:name => name,
                  :email => email,
@@ -27,21 +27,28 @@ def make_users
   end
 end
 
-def make_microposts
-  User.all(:limit => 6).each do |user|
-    50.times do
-      content = Faker::Lorem.sentence(5)
-      user.microposts.create!(:content => content)
+def make_techniques
+  User.all.each do |user|
+    51.times do
+      description = Faker::Lorem.sentence
+      name = Faker::Lorem.words
+      t = user.techniques.create!(:description => description,
+                                  :name => name)
+      vname = Faker::Lorem.words
+      vdescription = Faker::Lorem.sentence
+      t.videos.create!(:name => vname,
+                       :url => "http://www.youtube.com/watch?v=rY5eGjpGxAk&feature=related",
+                       :description => vdescription)
     end
   end
 end
 
-def make_relationships
-  users = User.all
-  user  = users.first
-  following = users[1..50]
-  followers = users[3..40]
-  following.each { |followed| user.follow!(followed) }
-  followers.each { |follower| follower.follow!(user) }
+def make_technique_relationships
+  Technique.all.each do |tech|
+    id = tech.id
+    tech.add_child!(Technique.find_by_id(id + 1)) unless Technique.find_by_id(id + 1).nil?
+    tech.add_child!(Technique.find_by_id(id + 2)) unless Technique.find_by_id(id + 2).nil?
+    tech.add_child!(Technique.find_by_id(id + 3)) unless Technique.find_by_id(id + 3).nil?
+  end
 end
 

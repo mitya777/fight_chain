@@ -1,0 +1,6 @@
+<%= form_for technique.technique_relationships.build do |tech_rel_form|%>
+  <%= tech_rel_form.hidden_field :parent_id %>
+  <%= tech_rel_form.collection_select(:child_id, current_user.techniques, :id, :name, :prompt => true,
+                                                                          :disabled => technique.id) %>
+  <%= tech_rel_form.submit "Add Child" %>
+<% end %>

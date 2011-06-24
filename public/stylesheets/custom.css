@@ -3,7 +3,11 @@
 }
 
 body{
-  background: #cff;
+  background: #ffffff;
+  background-image:url(../images/chain.png);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position: left top;
 }
 
 header{
@@ -11,7 +15,7 @@ header{
 }
 
 header img {
-  padding: 1em;
+  padding: 0em;
   background: #fff;
 }
 
@@ -19,7 +23,7 @@ section {
   margin-top: 1em;
   font-size: 120%;
   padding: 20px;
-  background: #fff;
+  background-color: #000;
 }
 
 section h1 {
@@ -29,27 +33,29 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: blue;
   text-decoration: none;
 }
 
 a:hover {
-  color: #069;
+  color: red;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #069;
+  color: red;
 }
 
 /* Navigation */
 
 nav {
   float: right;
+  background-image: url(../images/nav.png);
+  height: 50px;
+  font-size: 115%;
 }
 
 nav {
-  background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
 }
@@ -62,20 +68,25 @@ nav ul {
 nav ul li {
   list-style-type: none;
   display: inline-block;
-  padding: 0.2em 0;
+  padding: 0.2em 0;  
 }
 
 nav ul li a {
   padding: 0 5px;
   font-weight: bold;
+  color: white;
 }
 
 nav ul li a:visited {
-  color: #09c;
+  color: white;
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  color:red;
+}
+
+nav span {
+  color: #ff4f4f;
 }
 
 a.signup_button {
@@ -91,14 +102,6 @@ a.signup_button {
   padding: 20px;
 }
 
-/* Round corners */
-
-.round {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-
 footer {
   text-align: center;
   margin-top: 10px;
@@ -109,6 +112,20 @@ footer {
 
 footer nav {
   float: none;
+}
+
+/* Border */
+
+.border {
+  border: 1px solid black;
+}
+
+/* Round corners */
+
+.round {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 /* User show page */
@@ -190,35 +207,6 @@ ul.users {
   list-style: none;
 }
 
-h1.micropost {
-  margin-bottom: 0.3em;
-}
-
-table.microposts {
-  margin-top: 1em;
-}
-
-table.microposts tr {
-  height: 70px;
-}
-
-table.microposts tr td.gravatar {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  width: 50px;
-}
-
-table.microposts tr td.micropost {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  padding-top: 10px;
-}
-
-table.microposts tr td.micropost span.timestamp {
-  display: block;
-  font-size: 85%;
-  color: #666;
-}
 
 div.user_info img {
   padding-right: 0.1em;
@@ -236,12 +224,42 @@ div.user_info span.microposts {
   font-size: 80%;
 }
 
-form.new_micropost {
-  margin-bottom: 2em;
+/*Video Layouts*/
+
+div.technique {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
 
-form.new_micropost textarea {
-  height: 4em;
-  margin-bottom: 0;
+div.parents {
+  width: auto;
+  height: auto;
+  overflow:auto;
+  background-color: #fff;
+}
+
+div.children {
+  width: auto;
+  height: auto;
+  overflow:auto;
+  background-color: #fff;
+}
+
+div.h_scroll {
+  float: left;
+  margin-right: -30000px;
+}
+
+div.parents div.technique_thumb {
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+div.children div.technique_thumb {
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 

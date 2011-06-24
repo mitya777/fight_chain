@@ -1,0 +1,27 @@
+
+  <div class="parents">
+    <div class = "h_scroll">
+      <h3>Parents:</h3>
+      <% @technique.parents.each do |parent| %>
+            <%= render :partial => 'technique_thumb', :object => parent, :as => :technique %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class = "technique round">
+    <h2><%= @technique.name %></h2>
+      <%= render :partial => 'add_parent', :locals => {:technique => @technique} %>
+      <table>
+        <%= render @technique %>
+      </table>
+      <%= render :partial => 'add_child', :locals => { :technique => @technique} %>
+  </div>
+  
+  <div class="children">
+    <div class = "h_scroll">
+      <h3>Children:</h3>
+      <% @technique.children.each do |child| %>
+          <%= render :partial => 'technique_thumb', :object => child, :as => :technique %>
+      <% end %>
+    </div>
+  </div>

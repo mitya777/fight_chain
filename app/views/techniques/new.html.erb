@@ -1,0 +1,34 @@
+<h1>Create Technique</h1>
+
+<%= form_for @technique do |tech_form| %>
+
+  <%= tech_form.label :name %>
+  <%= tech_form.text_field :name %>
+
+  <br />
+
+  <%= tech_form.label :description %>
+  <%= tech_form.text_field :description %>
+
+  <br />
+
+  <%= tech_form.fields_for :videos do |vid_form| %>
+    
+    <%= vid_form.label :url %>
+    <%= vid_form.text_field :url %>
+
+    <br />
+
+    <%= vid_form.label :name %>
+    <%= vid_form.text_field :name %>
+
+    <br />
+
+    <%= vid_form.label :description %>
+    <%= vid_form.text_field :description %>
+  <% end %>
+
+  <br />
+  <%= tech_form.submit "Create Technique" %>
+<% end %>
+

@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user, :only => :destroy
 
+  def techniques
+    @title = "#{current_user.name}'s Techniques"
+    @techniques = current_user.techniques.paginate :page => params[:page],
+                                                   :per_page => 10
+  end
+
   def new
     @user = User.new
     @title = "Sign Up"
@@ -15,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @videos = @user.videos.paginate(:page => params[:page])
+    @videos = @user.techniques.paginate(:page => params[:page])
     @title = @user.name
   end
 

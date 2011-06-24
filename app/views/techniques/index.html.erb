@@ -1,0 +1,16 @@
+<h1>All Techniques</h1>
+
+<% form_tag techniques_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<%= will_paginate %>
+
+<ul class="techniques">
+  <%= render :partial => 'technique_thumb', :collection => @techniques, :as => :technique %>
+</ul>
+
+<%= will_paginate %>

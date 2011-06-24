@@ -1,0 +1,13 @@
+<h1><%= current_user %>'s Techniques</h1>
+
+<div class="techniques">
+
+  <%= #will_paginate @techniques %>
+
+  <table>
+    <%= render @techniques %>
+  </table>
+
+  <%= #will_paginate @techniques %>
+
+</div>

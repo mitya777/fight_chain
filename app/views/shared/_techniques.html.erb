@@ -1,0 +1,7 @@
+<% unless @techniques.empty? %>
+  <table class="techniques" summary="user techniques">
+    <%= render :partial => 'shared/technique', :collection => @techniques %>
+  </table>
+  <%= will_paginate @techniques %>
+<% end %>
+

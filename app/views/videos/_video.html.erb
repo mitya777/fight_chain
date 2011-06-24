@@ -1,0 +1,11 @@
+<% video_height ||= 349 %>
+<% video_width ||= 425 %>
+
+
+<div class="youtube_video">
+  <object width="<%= video_width %>" height="<%= video_height %>"
+          data="http://www.youtube.com/v/<%= video.youtube_id %>&hl=en" type="application/x-shockwave-flash"> 
+    <param name="src" value="http://www.youtube.com/v/<%= video.youtube_id %>&hl=en"/>    
+  </object>
+</div>
+
