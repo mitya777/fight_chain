@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    logger.debug "USER INDEX: CURRENT USER: #{current_user}"
     @title = "All users"
     @users = User.paginate :page => params[:page]
   end

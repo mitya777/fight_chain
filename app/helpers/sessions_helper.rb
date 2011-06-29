@@ -18,11 +18,14 @@ module SessionsHelper
   end
 
   def sign_out
+    logger.debug "SIGN OUT"
     cookies.delete(:remember_token)
     self.current_user = nil
   end
 
   def authenticate
+    logger.debug "AUTHENTICATE: CURRENT USER: #{current_user}"
+    logger.debug "AUTHENTICATE: SESSION: #{cookies[:remember_token]}" 
     deny_access unless signed_in?
   end
 

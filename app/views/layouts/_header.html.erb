@@ -31,15 +31,17 @@
     </li>
 
     <% if signed_in? %>
-      <li><%= link_to signout_path, :method => :delete do %>
-        S<span>i</span>gn out
-      <%end%>
-    </li>
+      <li>
+        <%= link_to signout_path, :method => :delete do %>
+          S<span>i</span>gn out
+        <%end%>
+      </li>
     <% else %>
-      <li><%= link_to signin_path do %>
-        S<span>i</span>gn out
-      <%end%>
-    </li>
+      <li>
+        <%= link_to signin_path do %>
+          S<span>i</span>gn in
+        <%end%>
+      </li>
     <% end %>
   </ul>
 </nav>
