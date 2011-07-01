@@ -10,11 +10,11 @@
 
   <div class = "technique round">
     <h2><%= @technique.name %></h2>
-      <%= render :partial => 'add_parent', :locals => {:technique => @technique} %>
+      <%= link_to "Add Parent", new_technique_relationship_path(:child_id => @technique.id) %>
       <table>
         <%= render @technique %>
       </table>
-      <%= render :partial => 'add_child', :locals => { :technique => @technique} %>
+      <%= link_to "Add Child", new_technique_relationship_path(:parent_id => @technique.id) %>
   </div>
   
   <div class="children">

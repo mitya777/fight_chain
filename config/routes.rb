@@ -1,5 +1,11 @@
 SampleApp::Application.routes.draw do
 
+  resources :techniques do
+    member do
+      get 'add_parent'
+      get 'add_child'
+    end
+  end
 
   resources :users do
     resources :techniques 

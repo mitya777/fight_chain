@@ -1,27 +1,50 @@
 class TechniqueRelationshipsController < ApplicationController
   before_filter :authenticate
 
-  def create
-    if params[:commit] == "Add Parent" then
-      @technique = Technique.find_by_id(params[:technique_relationship][:child_id])
-      @parent = Technique.find_by_id(params[:technique_relationship][:parent_id])
-      @technique.add_parent!(@parent)
-      redirect_to @technique
-    elsif params[:commit] == "Add Child" then
-      @technique = Technique.find_by_id(params[:technique_relationship][:parent_id])
-      @child = Technique.find_by_id(params[:technique_relationship][:child_id])
-      @technique.add_child!(@child)
-      redirect_to @technique
-    end 
+  def add_parent
+    @technique = Technique.find(params["id"])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def add_child
+    @technique = Technique.find(params["id"])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def new
+    if params[:child_id]
+      @technique = Technique.find params[:child_id]
+      respond_to do |format|
+        format.html {render 'add_parent'}
+        format.js
+      end
+    end
+    if params[:parent_id]
+      @technique = Technique.find params[:parent_id]
+      respond_to do |format|
+        format.html {render 'add_child'}
+        format.js
+      end
+    end
+  end
+
+  def create 
+    parent_id = params[:technique_relationship][:parent_id]
+    child_id = params[:technique_relationship][:child_id]
+    TechniqueRelationship.create!(:parent_id => parent_id, :child_id => child_id)
+    respond_to do |format|
+      format.html {redirect_to Technique.find(params[:technique][:id])}
+      format.js
+    end
   end
 
   def destroy #one destroy method should handle both 
   end
 
-  def add_parent
-    
-  end
-
-  def add_child
-  end
 end

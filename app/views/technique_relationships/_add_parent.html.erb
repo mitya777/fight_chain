@@ -1,0 +1,7 @@
+<%= form_for technique.reverse_technique_relationships.build  do |tech_rel_form|%>
+  <%= hidden_field :technique, :id %> <!-- this is so we know where to redirect after create action -->
+  <%= tech_rel_form.hidden_field :child_id %>
+  <%= tech_rel_form.collection_select(:parent_id, current_user.techniques, :id, :name, :prompt => true,
+                                                                          :disabled => technique.id) %>
+  <%= tech_rel_form.submit "Add Parent" %>
+<% end %>

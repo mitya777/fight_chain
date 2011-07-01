@@ -1,0 +1,4 @@
+<div class = "technique_select">
+  <%= render :partial => "videos/video", :locals => {:video => technique.videos.first,
+                                                     :video_height => 122, :video_width => 150} %>
+  <%= link_to technique.name, :technique_relationships_path(params.merge(local_params.merge(:

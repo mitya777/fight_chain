@@ -50,4 +50,5 @@ class TechniquesController < ApplicationController
       end
     end
   end
+
 end
