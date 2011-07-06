@@ -17,13 +17,27 @@ class Technique < ActiveRecord::Base
     indexes :name
     indexes description
     indexes videos.name
+
+    has user_id, :as => :user_id
   end
 
-  def add_parent!(parent)
-    reverse_technique_relationships.create!(:parent_id => parent.id)
+  def possible_parents(user)
+    if belongs_to? user
+      user.techniques - (self.parents + [self])
+    else 
+      raise "You are not the owner of this technique!"
+    end
   end
 
-  def add_child!(child)
-    technique_relationships.create!(:child_id => child.id)
+  def possible_children(user)
+    if belongs_to? user
+      user.techniques - (self.children + [self])
+    else 
+      raise "You are not the owner of this technique!"
+    end
+  end
+
+  def belongs_to?(user)
+    self.user_id == user.id 
   end
 end

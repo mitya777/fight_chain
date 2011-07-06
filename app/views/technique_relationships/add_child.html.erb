@@ -1,1 +1,1 @@
-<%= render :partial => 'add_child', :object => @technique, :as => :technique %>
+<%= render :partial => 'add_child', :locals => { :parent => @parent, :select_children => @select_children} %>

@@ -1,32 +1,18 @@
 class TechniqueRelationshipsController < ApplicationController
   before_filter :authenticate
 
-  def add_parent
-    @technique = Technique.find(params["id"])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
-  def add_child
-    @technique = Technique.find(params["id"])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def new
-    if params[:child_id]
-      @technique = Technique.find params[:child_id]
+    if params[:child_id] #ADD PARENT: if child is present then we will be adding its parent
+      @child = Technique.find params[:child_id]
+      @select_parents = @child.possible_parents(current_user)
       respond_to do |format|
         format.html {render 'add_parent'}
-        format.js
+        format.js {render 'add_parent'}
       end
     end
-    if params[:parent_id]
-      @technique = Technique.find params[:parent_id]
+    if params[:parent_id] #ADD CHILD: if parent is present then we are adding child
+      @parent = Technique.find params[:parent_id]
+      @select_children = @parent.possible_children(current_user)
       respond_to do |format|
         format.html {render 'add_child'}
         format.js
@@ -39,7 +25,7 @@ class TechniqueRelationshipsController < ApplicationController
     child_id = params[:technique_relationship][:child_id]
     TechniqueRelationship.create!(:parent_id => parent_id, :child_id => child_id)
     respond_to do |format|
-      format.html {redirect_to Technique.find(params[:technique][:id])}
+      format.html {redirect_to Technique.find(params[:origin])}
       format.js
     end
   end

@@ -1,8 +1,6 @@
-<%= form_for technique.technique_relationships.build do |tech_rel_form|%>
-  <%= hidden_field :technique, :id %> <!-- this is so we know where to redirect after create action -->
-
+<%= form_for parent.technique_relationships.build do |tech_rel_form|%>
+  <%= hidden_field_tag 'origin', parent.id %> <!-- this is so we know where to redirect after create action -->
   <%= tech_rel_form.hidden_field :parent_id %>
-  <%= tech_rel_form.collection_select(:child_id, current_user.techniques, :id, :name, :prompt => true,
-                                                                          :disabled => technique.id) %>
+  <%= tech_rel_form.collection_select :child_id, select_children, :id, :name, :prompt => true %>
   <%= tech_rel_form.submit "Add Child" %>
 <% end %>

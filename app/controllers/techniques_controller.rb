@@ -1,5 +1,5 @@
 class TechniquesController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :save]
+  before_filter :authenticate, :only => [:index, :new, :create, :destroy, :save]
 
   def new
     @technique = Technique.new
@@ -13,13 +13,13 @@ class TechniquesController < ApplicationController
   end
 
   def index
-    @title = "All Techniques"
-    if params[:search] 
-      @techniques = Technique.search params[:search],
+    @title = "#{current_user.name}'s Techniques"
+    if params[:search] && params[:search] != ""
+      @techniques = current_user.techniques.search params[:search],
                                    :page => params[:page],  
                                    :per_page => 10
     else
-      @techniques = Technique.paginate :page => params[:page],
+      @techniques = current_user.techniques.paginate :page => params[:page],
                                       :per_page => 10
     end
   end

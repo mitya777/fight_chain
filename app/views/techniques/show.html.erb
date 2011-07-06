@@ -10,11 +10,11 @@
 
   <div class = "technique round">
     <h2><%= @technique.name %></h2>
-      <%= link_to "Add Parent", new_technique_relationship_path(:child_id => @technique.id) %>
+      <%= link_to "Add Parent", new_technique_relationship_path(:child_id => @technique.id), :remote => true %>
       <table>
         <%= render @technique %>
       </table>
-      <%= link_to "Add Child", new_technique_relationship_path(:parent_id => @technique.id) %>
+      <%= link_to "Add Child", new_technique_relationship_path(:parent_id => @technique.id), :remote => true %>
   </div>
   
   <div class="children">

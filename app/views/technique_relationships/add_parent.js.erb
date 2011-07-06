@@ -1,4 +1,12 @@
 
 $('body').append('<div class = "backdrop"></div>');
 $('body').append('<div class = "box"><div class = "close">close</div>This is the lightbox</div>');
+$('.box').html("<%= escape_javascript(
+  @select_parents.each do |technique|
+    <div class = "technique_select">
+      render(:partial => "videos/video", :locals => {:video => technique.videos.first,
+                                                     :video_width => 150, :video_height => 122})
+    </div>
+  end
+      )%>");
 
