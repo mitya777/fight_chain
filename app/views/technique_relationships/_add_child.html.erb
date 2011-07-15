@@ -1,6 +1,9 @@
-<%= form_for parent.technique_relationships.build do |tech_rel_form|%>
-  <%= hidden_field_tag 'origin', parent.id %> <!-- this is so we know where to redirect after create action -->
-  <%= tech_rel_form.hidden_field :parent_id %>
-  <%= tech_rel_form.collection_select :child_id, select_children, :id, :name, :prompt => true %>
-  <%= tech_rel_form.submit "Add Child" %>
-<% end %>
+<% select_children.each do |technique| %>
+  <div class = "technique_select">
+    <%= render :partial => "videos/video", :locals => {:video => technique.videos.first, 
+                                                       :video_width => 150, :video_height => 122} %>
+    <%= link_to technique.name, technique_relationships_path(
+              :technique_relationship => {:child_id => technique.id, :parent_id => parent.id}, 
+              :origin => 'parent'), :remote => true, :method => :post %>
+  </div>
+<%end%>

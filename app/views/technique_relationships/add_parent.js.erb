@@ -1,12 +1,24 @@
+if(!$('.backdrop').length){
+  $('body').append('<div class = "backdrop"></div>');
+  $('.backdrop').click(function(){
+    if($('.box').length) $('.box').remove();
+    $(this).remove();
+  });
+};
 
-$('body').append('<div class = "backdrop"></div>');
-$('body').append('<div class = "box"><div class = "close">close</div>This is the lightbox</div>');
-$('.box').html("<%= escape_javascript(
-  @select_parents.each do |technique|
-    <div class = "technique_select">
-      render(:partial => "videos/video", :locals => {:video => technique.videos.first,
-                                                     :video_width => 150, :video_height => 122})
-    </div>
-  end
-      )%>");
+if(!$('.box').length)
+  $('body').append('<div class = "box"><div class = "close">close</div>This is the lightbox</div>');
 
+$('.box').html(
+  '<a id="fightbox_close" href="#">x</a>' +
+  "<%= escape_javascript(render :partial => 'search_parents', :locals => {:child => @child}) %>" +
+  "<%= escape_javascript( will_paginate @select_parents ) %> </br>" +
+  "<div class = 'techniques_select'>" +
+  "<%= escape_javascript(render :partial => 'add_parent', :locals => {:child => @child, :select_parents => @select_parents}) %>" +
+  "</div></br>" +
+  "<%= escape_javascript( will_paginate @select_parents ) %>");
+
+$('#fightbox_close').click(function(){
+  $('.box').remove();
+  $('.backdrop').remove();
+});

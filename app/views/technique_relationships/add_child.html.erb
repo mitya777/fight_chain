@@ -1,1 +1,18 @@
-<%= render :partial => 'add_child', :locals => { :parent => @parent, :select_children => @select_children} %>
+
+<%= form_tag new_technique_relationship_path, :method => 'get' do %>
+  <p>
+    <%= hidden_field_tag :parent_id, @parent.id %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<%= will_paginate @select_children %>
+<br/>
+
+<div class = "techniques_select">
+  <%= render :partial => 'add_child', :locals => { :child => @parent, :select_parents => @select_children} %>
+</div>
+
+<br/>
+<%= will_paginate @select_children %>

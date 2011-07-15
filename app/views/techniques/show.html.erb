@@ -1,10 +1,8 @@
 
   <div class="parents">
-    <div class = "h_scroll">
-      <h3>Parents:</h3>
-      <% @technique.parents.each do |parent| %>
-            <%= render :partial => 'technique_thumb', :object => parent, :as => :technique %>
-      <% end %>
+    <h3>Parents:</h3>
+    <div class = "h_scroll parent_techniques">
+      <%= render :partial => 'parents', :object => @technique, :as => :technique %>
     </div>
   </div>
 
@@ -18,8 +16,8 @@
   </div>
   
   <div class="children">
-    <div class = "h_scroll">
-      <h3>Children:</h3>
+    <h3>Children:</h3>
+    <div class = "h_scroll child_techniques">
       <% @technique.children.each do |child| %>
           <%= render :partial => 'technique_thumb', :object => child, :as => :technique %>
       <% end %>

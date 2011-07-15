@@ -1,0 +1,8 @@
+<!-- FOR SOME REASON I COULD NOT GET THE TECHNIQUE_THUMB PARTIAL TO WORK HERE SO I HAD TO HARDCODE -->
+<% technique.parents.each do |parent| %>
+  <div class = "technique_thumb">
+    <%= render :partial => 'videos/video', :locals => {:video => parent.videos.first,
+                                                       :video_height => 122, :video_width => 150}%>
+    <%= link_to parent.name, parent %>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+$('.child_techniques').prepend(
+  "<%= escape_javascript(render :partial => 'techniques/technique_thumb', :locals => {:technique => @child}) %>");
+
+$('.backdrop').remove();
+$('.box').remove();

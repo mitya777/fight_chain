@@ -11,7 +11,7 @@ class Video < ActiveRecord::Base
   private
  
   def video_regex 
-    /youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([a-zA-Z0-9-_]+)/
+    /youtu(?:\.be|be\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([a-zA-Z0-9\-_]+)/
   end
   
 end

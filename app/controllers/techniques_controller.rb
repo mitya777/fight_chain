@@ -14,14 +14,9 @@ class TechniquesController < ApplicationController
 
   def index
     @title = "#{current_user.name}'s Techniques"
-    if params[:search] && params[:search] != ""
-      @techniques = current_user.techniques.search params[:search],
+    @techniques = current_user.techniques.search params[:search],
                                    :page => params[:page],  
                                    :per_page => 10
-    else
-      @techniques = current_user.techniques.paginate :page => params[:page],
-                                      :per_page => 10
-    end
   end
 
   def show

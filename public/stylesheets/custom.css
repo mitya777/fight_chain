@@ -263,3 +263,13 @@ div.children div.technique_thumb {
   padding-right: 1em;
 }
 
+div.techniques_select{
+  height: auto;
+  overflow: auto;
+}
+
+div.technique_select {
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em;
+}

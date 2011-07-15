@@ -1,0 +1,7 @@
+<%= form_tag new_technique_relationship_path, :method => 'get', :remote => true do %>
+  <p>
+    <%= hidden_field_tag :child_id, child.id %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>

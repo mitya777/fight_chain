@@ -1,0 +1,3 @@
+<% technique.parents.each do |parent| %>
+  <%= render :partial => 'technique_thumb', :object => parent, :as => :technique %>
+<% end %>
