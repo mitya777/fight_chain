@@ -7,10 +7,10 @@
   </p>
 <% end %>
 
-<%= will_paginate %>
 
-<ul class="techniques">
+<div class="techniques">
+  <%= will_paginate %>
   <%= render :partial => 'technique_thumb', :collection => @techniques, :as => :technique %>
-</ul>
+  <%= will_paginate %>
+</div>
 
-<%= will_paginate %>

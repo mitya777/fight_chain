@@ -10,7 +10,8 @@ if(!$('.box').length)
   $('body').append('<div class = "box"><div class = "close">close</div>This is the lightbox</div>');
 
 $('.box').html(
-  '<a id="fightbox_close" href="#">x</a>' +
+  '<h2>Chain Previous</h2>' +
+  '<a id="fightbox_close" href="javascript:;">x</a>' +
   "<%= escape_javascript(render :partial => 'search_parents', :locals => {:child => @child}) %>" +
   "<%= escape_javascript( will_paginate @select_parents ) %> </br>" +
   "<div class = 'techniques_select'>" +

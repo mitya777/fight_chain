@@ -17,6 +17,10 @@ class TechniquesController < ApplicationController
     @techniques = current_user.techniques.search params[:search],
                                    :page => params[:page],  
                                    :per_page => 10
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
