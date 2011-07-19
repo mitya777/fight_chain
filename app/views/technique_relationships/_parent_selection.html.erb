@@ -1,0 +1,3 @@
+<% select_parents.each do |parent| %>
+  <%= render :partial => 'techniques/parent_technique_candidate', :locals => {:parent => parent, :child => child} %>
+<%end%>

@@ -251,16 +251,36 @@ div.h_scroll {
   margin-right: -30000px;
 }
 
-div.parents div.technique_thumb {
+div.parents div.technique_thumb, div.children div.technique_thumb {
   float: left;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1.5em;
+  border: 1px solid black;
+  margin: 0em 1em 1em 1em;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  font-size: small;
+  position: relative;
 }
 
-div.children div.technique_thumb {
-  float: left;
-  padding-left: 1em;
-  padding-right: 1em;
+div.technique_thumb div.youtube_video { 
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+}
+
+div.technique_thumb a.remove_relative {
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  color: black;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+div.technique_thumb a.thumb_name:hover {
 }
 
 div.techniques_select{
@@ -268,8 +288,24 @@ div.techniques_select{
   overflow: auto;
 }
 
-div.technique_select {
+div.technique_candidate {
   float: left;
   padding-left: 1em;
   padding-right: 1em;
+  padding-top: 1em;
+
+  border: 1px solid black;
+  margin: 0em 1em 1em 1em;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  font-size: small;
+  position: relative;
 }
+
+.shadow {
+  -moz-box-shadow: 3px 3px 5px #aaa;
+  -webkit-box-shadow: 3px 3px 5px #aaa;
+  box-shadow: 3px 3px 5px #aaa;
+  }
+

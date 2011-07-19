@@ -23,20 +23,21 @@ class Technique < ActiveRecord::Base
 
   default_scope :order => 'techniques.created_at DESC'
 
+
   def possible_parents(user)
-    if belongs_to? user
       user.techniques - (self.parents + [self])
-    else 
-      raise "You are not the owner of this technique!"
-    end
   end
 
   def possible_children(user)
-    if belongs_to? user
       user.techniques - (self.children + [self])
-    else 
-      raise "You are not the owner of this technique!"
-    end
+  end
+
+  def add_parent!(parent_technique)
+    reverse_technique_relationships.create! :parent_id => parent_technique.id
+  end
+
+  def add_child!(child_technique)
+    technique_relationships.create! :child_id => child_technique.id
   end
 
   def belongs_to?(user)

@@ -11,15 +11,15 @@ if(!$('.box').length){
 }
 $('.box').html(
   '<h2>Chain Forward</h2>' +
-  '<a id="fightbox_close" href="javascript:;">x</a>' + 
-  "<%= escape_javascript(render :partial => 'search_children', :locals => {:parent => @parent}) %>" +
+  '<a class="fightbox_close" href="javascript:;">x</a>' + 
+  "<%= escape_javascript(render :partial => 'techniques/search_children', :locals => {:parent => @parent}) %>" +
   "<%= escape_javascript( will_paginate @select_children ) %> </br>" +
   "<div class = 'techniques_select'>" +
-  "<%= escape_javascript(render :partial => 'add_child', :locals => {:parent => @parent, :select_children => @select_children }) %>" +
+  "<%= escape_javascript(render :partial => 'child_selection', :locals => {:parent => @parent, :select_children => @select_children }) %>" +
   "</div></br>" +
   "<%= escape_javascript( will_paginate @select_children ) %>");
 
-$('#fightbox_close').click(function(){
+$('.fightbox_close').click(function(){
   $('.box').remove();
   $('.backdrop').remove();
 });

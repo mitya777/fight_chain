@@ -2,13 +2,13 @@
   <div class="parents">
     <h3>Parents:</h3>
     <div class = "h_scroll parent_techniques">
-      <%= render :partial => 'parents', :object => @technique, :as => :technique %>
+      <%= render :partial => 'parents', :object => @technique, :as => :child %>
     </div>
   </div>
 
   <div class = "technique round">
-    <h2><%= @technique.name %></h2>
       <%= link_to "Add Parent", new_technique_relationship_path(:child_id => @technique.id), :remote => true %>
+    <h2><%= @technique.name %></h2>
       <table>
         <%= render @technique %>
       </table>
@@ -18,8 +18,6 @@
   <div class="children">
     <h3>Children:</h3>
     <div class = "h_scroll child_techniques">
-      <% @technique.children.each do |child| %>
-          <%= render :partial => 'technique_thumb', :object => child, :as => :technique %>
-      <% end %>
+        <%= render :partial => 'children', :object => @technique, :as => :parent %>
     </div>
   </div>

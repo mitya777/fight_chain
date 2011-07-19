@@ -1,4 +1,7 @@
-<div class = "technique_select">
-  <%= render :partial => "videos/video", :locals => {:video => technique.videos.first,
-                                                     :video_height => 122, :video_width => 150} %>
-  <%= link_to technique.name, :technique_relationships_path(params.merge(local_params.merge(:
+  <div class = "technique_select">
+    <%= render :partial => "videos/video", :locals => {:video => technique.videos.first, 
+                                                       :video_width => 150, :video_height => 122} %>
+    <%= link_to technique.name, technique_relationships_path(
+              :technique_relationship => {:child_id => technique.id, :parent_id => parent.id}, 
+              :origin => 'parent'), :remote => true, :method => :post %>
+  </div>

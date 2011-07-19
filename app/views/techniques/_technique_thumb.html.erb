@@ -1,7 +1,8 @@
 
-<div class = "technique_thumb">
+<div class = "technique_thumb shadow">
+  <a class="remove_relative" href="javascript:;">x</a>
   <%= render :partial => 'videos/video', :locals => {:video => technique.videos.first, 
                                                      :video_height => 122, :video_width => 150} %>
-  <%= link_to technique.name, technique %>
+  <%= link_to technique.name, technique, :class => "thumb_name" %>
 </div>
 
