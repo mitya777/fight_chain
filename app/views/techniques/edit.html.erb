@@ -1,2 +1,36 @@
-<h1>Techniques#edit</h1>
-<p>Find me in app/views/techniques/edit.html.erb</p>
+<span class="edit_technique">
+
+<h1>Edit Technique</h1>
+
+<%= form_for @technique do |tech_form| %>
+
+  <div class="field">
+    <%= tech_form.label :name %>
+    <br />
+    <%= tech_form.text_field :name %>
+  </div>
+
+  <br />
+
+  <div class="field">
+    <%= tech_form.label :description %>
+    <br />
+    <%= tech_form.text_area :description %>
+  </div>
+
+  <br />
+
+  <div class="field">
+    <%= tech_form.fields_for :videos do |vid_form| %>
+      
+      <%= vid_form.label :url %>
+      <br />
+      <%= vid_form.text_field :url %>
+    <% end %>
+  </div>
+
+  <br />
+  <%= tech_form.submit "Update Technique" %>
+<% end %>
+
+</span>

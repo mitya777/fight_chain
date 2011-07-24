@@ -1,0 +1,10 @@
+<!-- perform a find below, couldn't get routing to work otherwise. -->
+<div id = "parent_<%= parent.id %>" class = "technique_thumb shadow">
+  <%= link_to "x", technique_relationship_path(
+                        TechniqueRelationship.find_by_parent_id_and_child_id(parent.id, child.id).id,
+                        :origin => "parents"), :class => "remove_relative", :method => :delete, :remote => :true %>
+  <%= render :partial => 'videos/video', :locals => {:video => parent.videos.first, 
+                                                     :video_height => 122, :video_width => 150} %>
+  <%= link_to parent.name, parent, :class => "thumb_name" %>
+</div>
+

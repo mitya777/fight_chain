@@ -29,11 +29,15 @@ class TechniquesController < ApplicationController
   end
 
   def edit
+    @technique = Technique.find params[:id]
+    1.times {@technique.videos.first} #add dynamic video addition functionality
+    @title = "Edit Technique"
   end
 
   def update
-    @technique = Technique.find(params[id])
+    @technique = Technique.find(params[:id])
     @technique.update_attributes(params[:technique])
+    redirect_to @technique
   end
 
   def destroy

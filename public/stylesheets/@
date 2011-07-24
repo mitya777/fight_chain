@@ -225,18 +225,10 @@ div.user_info span.microposts {
 }
 
 /*Techniques*/
-/* edit */
-.edit_technique #technique_name {
-  width: 611px;
-}
 
-.edit_technique #technique_description {
-  width: 600px;
-  height: 85px
-}
-
-.edit_technique #technique_videos_attributes_0_url {
-  width: 611px;
+span.edit_techniques  textarea{
+  width: 200px;
+  rows: 5;
 }
 
 /*Video Layouts*/

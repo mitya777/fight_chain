@@ -42,7 +42,13 @@ class TechniqueRelationshipsController < ApplicationController
   end
 
   def destroy #one destroy method should handle both 
-  
+    @tech_rel = TechniqueRelationship.find_by_id params[:id]
+    @tech_rel.destroy
+    @parent = @tech_rel.parent
+    @child = @tech_rel.child
+    respond_to do |format|
+      format.html { params[:origin] == 'parents' ? ( redirect_to @child) : (redirect_to @parent)}
+      format.js { params[:origin] == 'parents' ? ( render 'destroy_parent') : (render 'destroy_child')}
+    end
   end
-
 end

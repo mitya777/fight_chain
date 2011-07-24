@@ -1,0 +1,10 @@
+
+<div id = "child_<%= child.id %>" class = "technique_thumb shadow">
+  <%= link_to "x", technique_relationship_path(
+                          TechniqueRelationship.find_by_parent_id_and_child_id(parent.id, child.id).id,
+                          :origin => "children"), :class => "remove_relative", :method => :delete, :remote => :true %>
+  <%= render :partial => 'videos/video', :locals => {:video => child.videos.first, 
+                                                     :video_height => 122, :video_width => 150} %>
+  <%= link_to child.name, child, :class => "thumb_name" %>
+</div>
+

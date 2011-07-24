@@ -2,7 +2,7 @@
   <td><%= render technique.videos %></td>
   <td>
       <ul>
-          <li> <%= link_to technique.name, technique %> </li>
+          <li> <%= link_to "#{technique.name}(edit)", edit_technique_path(technique) %> </li>
           <li> <%= technique.description %> </li>
       </ul>
   </td>
