@@ -1,9 +1,13 @@
-<tr>
-  <td><%= render technique.videos %></td>
-  <td>
-      <ul>
-          <li> <%= link_to "#{technique.name}(edit)", edit_technique_path(technique) %> </li>
-          <li> <%= technique.description %> </li>
-      </ul>
-  </td>
-<tr/>
+
+<%= link_to "x", technique, :class => "remove_relative", :method => :delete, :confirm => "Are you sure?", :title => "Delete Technique" %>
+<table>
+  <tr>
+    <td><%= render technique.videos %></td>
+    <td>
+        <ul>
+            <li><strong> <%= technique.name %> </strong><%= link_to "(edit)", edit_technique_path(technique) %> </li>
+            <li> <%= technique.description %> </li>
+        </ul>
+    </td>
+  <tr/>
+</table>

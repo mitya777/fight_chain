@@ -1,26 +1,9 @@
-<% if signed_in? %>
-  <table class="front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class="micropost">What's up?</h1>
-        <%= render 'shared/micropost_form' %>
-        <%= render 'shared/feed' %>
-      </td>
-      <td class="sidebar round">
-        <%= render 'shared/user_info' %>
-        <%= render 'shared/stats' %>
-      </td>
-    </tr>
-  </table>
-<% else %>
-  <h1>Sample App</h1>
 
-  <p>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </p>
+<p>
+  Youtube is a great resource for learning and cataloguing Brazilian Jiu Jitsu techniques, but there is no way to relate the individual videos to each other. <br /><br />
+  As anyone knows, who has studied jiu jitsu, our techniques are often executed in chains, each subsequent move performed in response to the counters executed by our opponent. <br /><br />
+  Fightchain.com is meant to allow you to capture the relationships between your favorite techniques for easier learning, understanding, and execution.
+</p>
 
-  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
-<% end %>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
 

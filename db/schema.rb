@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522233751) do
+ActiveRecord::Schema.define(:version => 20110725185443) do
 
   create_table "technique_relationships", :force => true do |t|
     t.integer  "parent_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110522233751) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "delta",       :default => true, :null => false
   end
 
   create_table "users", :force => true do |t|

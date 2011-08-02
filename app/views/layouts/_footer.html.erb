@@ -1,10 +1,14 @@
 <footer>
   <nav>
     <ul>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-      <li><a href="http://www.railstutorial.org/">Rails Tutorial</a></li>
+      <li><%= link_to about_path do %>
+        A<span>b</span>out 
+      <% end %>
+      </li>
+      <li><%= link_to contact_path do %>
+        C<span>o</span>ntact
+      <% end %>
+      </li>
     </ul>
   </nav>
 </footer>

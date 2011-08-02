@@ -33,7 +33,7 @@ section h1 {
 /* Links */
 
 a {
-  color: blue;
+  color: red;
   text-decoration: none;
 }
 
@@ -95,11 +95,12 @@ a.signup_button {
   display: block;
   text-align: center;
   width: 190px;
-  color: #fff;
-  background: #006400;
+  color: #000;
+  background: #d00;
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
+  border: 1px solid black;
 }
 
 footer {
@@ -116,7 +117,7 @@ footer nav {
 
 /* Border */
 
-.border {
+.simple_border {
   border: 1px solid black;
 }
 
@@ -239,34 +240,67 @@ div.user_info span.microposts {
   width: 611px;
 }
 
-/*Video Layouts*/
+/*Technique Layouts*/
 
 div.technique {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
+  border: 1px solid black;
+  padding: 1.5em;
+  position: relative;
 }
 
-div.parents {
+div.technique ul {
+  list-style-type: none;
+}
+
+div.technique table {
+  margin: 0em;
+}
+
+div.techniques {
+  height: auto;
+  overflow: auto;
+}
+
+div.techniques div.technique_thumb {
+  float: left;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1.5em;
+  border: 1px solid black;
+  margin: 0em 1em 1em 1em;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  font-size: small;
+  position: relative;
+}
+
+div.parent_techniques {
+  margin-left: 1.5em;
   width: auto;
   height: auto;
   overflow:auto;
   background-color: #fff;
 }
 
-div.children {
+div.child_techniques {
+  margin-left: 1.5em;
   width: auto;
   height: auto;
   overflow:auto;
   background-color: #fff;
 }
+
 
 div.h_scroll {
   float: left;
   margin-right: -30000px;
 }
 
-div.parents div.technique_thumb, div.children div.technique_thumb {
+div.technique_thumb {
   float: left;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -286,7 +320,7 @@ div.technique_thumb div.youtube_video {
   width: 150px;
 }
 
-div.technique_thumb a.remove_relative {
+a.remove_relative {
   position: absolute;
   top: 0px;
   right: 6px;
@@ -324,3 +358,5 @@ div.technique_candidate {
   box-shadow: 3px 3px 5px #aaa;
   }
 
+.notice a.bookmarklet {color:red;}
+.notice a.bookmarklet:visited {color:red;}

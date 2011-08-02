@@ -15,8 +15,8 @@ class TechniquesController < ApplicationController
   def index
     @title = "#{current_user.name}'s Techniques"
     @techniques = current_user.techniques.search params[:search],
-                                   :page => params[:page],  
-                                   :per_page => 10
+                                   :page => params[:page], :match_mode => :any,  
+                                   :per_page => 9, :retry_stale => true, :order => "created_at DESC"
     respond_to do |format|
       format.html
       format.js
@@ -41,6 +41,8 @@ class TechniquesController < ApplicationController
   end
 
   def destroy
+    Technique.find(params[:id]).destroy
+    redirect_to techniques_path
   end
 
   def save

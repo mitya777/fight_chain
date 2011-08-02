@@ -19,6 +19,9 @@ class Technique < ActiveRecord::Base
     indexes videos.name
 
     has user_id, :as => :user_id
+    has created_at, :as => :created_at
+
+    set_property :delta => true
   end
 
   default_scope :order => 'techniques.created_at DESC'

@@ -1,3 +1,4 @@
+
 <h1><%= "#{current_user.name}'s Techniques" %></h1>
 
 <%= form_tag techniques_path, :method => 'get' do %>
@@ -8,9 +9,11 @@
 <% end %>
 
 
-<div class="techniques">
   <%= will_paginate %>
-  <%= render :partial => 'technique_thumb', :collection => @techniques, :as => :technique %>
+  <br />
+  <div class="techniques">
+    <%= render :partial => 'technique_thumb', :collection => @techniques, :as => :technique %>
+  </div>
+  <br />
   <%= will_paginate %>
-</div>
 

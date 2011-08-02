@@ -30,8 +30,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      flash[:success] = "Welcome to Fight Chain!"
+      flash[:notice] = render_to_string :partial => 'techniques/save'
+      redirect_to techniques_path
     else
       @title = "Sign up"
       render 'new'

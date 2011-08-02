@@ -1,23 +1,30 @@
+<div class = "parents">
+    <h3>
+      <%= link_to "Chain", new_technique_relationship_path(:child_id => @technique.id), :remote => true %>
+       Backwards
+      :</h3>
 
-  <div class="parents">
-    <h3>Parents:</h3>
-    <div class = "parent_techniques h_scroll">
+
+  <div class="parent_techniques">
+    <div class = "h_scroll">
       <%= render :partial => 'parents', :object => @technique, :as => :child %>
     </div>
   </div>
+</div>
 
-  <div class = "technique round">
-      <%= link_to "Add Parent", new_technique_relationship_path(:child_id => @technique.id), :remote => true %>
-    <h2><%= @technique.name %></h2>
-      <table>
-        <%= render @technique %>
-      </table>
-      <%= link_to "Add Child", new_technique_relationship_path(:parent_id => @technique.id), :remote => true %>
+  <div class = "technique shadow">
+    <%= render @technique %>
   </div>
   
   <div class="children">
-    <h3>Children:</h3>
-    <div class = "h_scroll child_techniques">
+    <h3>
+      <%= link_to "Chain", new_technique_relationship_path(:parent_id => @technique.id), :remote => true %>
+       Forwards
+      :</h3>
+
+    <div class = "child_techniques">
+      <div class = "h_scroll">
         <%= render :partial => 'children', :object => @technique, :as => :parent %>
+      </div>
     </div>
   </div>

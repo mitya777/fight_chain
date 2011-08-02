@@ -1,5 +1,4 @@
-$('div .techniques').html(
-  '<%= escape_javascript(will_paginate)%>' +
-  '<%= escape_javascript(render :partial => 'technique_thumb', :collection => @techniques, :as => :technique)%>' +
-  '<%= escape_javascript(will_paginate)%>');
+$('div.pagination').html('<%= escape_javascript(will_paginate)%>');
+$('div.techniques').html( 
+  '<%= escape_javascript(render :partial => 'technique_thumb', :collection => @techniques, :as => :technique)%>'); 
  

@@ -3,14 +3,13 @@
 <nav>
   <ul>
     <li><%= link_to root_path do %>
-      H<span>o</span>me
     <%end%>
     </li>
 
     <% if signed_in? %>
 
       <li><%= link_to techniques_path do %>
-        T<span>e</span>chnique
+        H<span>o</span>me
       <%end%>
       </li>
 
@@ -24,11 +23,6 @@
       <%end%>
       </li>
     <%end%>
-
-    <li><%= link_to help_path do %>
-      H<span>e</span>lp
-    <%end%>
-    </li>
 
     <% if signed_in? %>
       <li>
