@@ -1,9 +1,0 @@
-<% select_parents.each do |technique| %>
-  <div class = "technique_select">
-    <%= render :partial => "videos/video", :locals => {:video => technique.videos.first, 
-                                                       :video_width => 150, :video_height => 122} %>
-    <%= link_to technique.name, technique_relationships_path(
-              :technique_relationship => {:child_id => child.id, :parent_id => technique.id}, 
-              :origin => 'child'), :remote => true, :method => :post %>
-  </div>
-<%end%>
