@@ -14,9 +14,8 @@ class TechniquesController < ApplicationController
 
   def index
     @title = "#{current_user.name}'s Techniques"
-    @techniques = current_user.techniques.search params[:search],
-                                   :page => params[:page], :match_mode => :any,  
-                                   :per_page => 9, :retry_stale => true, :order => "created_at DESC"
+    @techniques = current_user.techniques.paginate :page => params[:page],
+                                                   :per_page => 9, :order => "created_at DESC"
     respond_to do |format|
       format.html
       format.js

@@ -12,7 +12,6 @@ if(!$('.box').length){
 $('.box').html(
   '<h2>Chain Forward</h2>' +
   '<a class="fightbox_close" href="javascript:;">x</a>' + 
-  "<%= escape_javascript(render :partial => 'techniques/search_children', :locals => {:parent => @parent}) %>" +
   "<%= escape_javascript( will_paginate @select_children ) %> </br>" +
   "<div class = 'techniques_select'>" +
   "<%= escape_javascript(render :partial => 'child_selection', :locals => {:parent => @parent, :select_children => @select_children }) %>" +
