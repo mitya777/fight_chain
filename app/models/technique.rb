@@ -13,16 +13,6 @@ class Technique < ActiveRecord::Base
   has_many :videos
   accepts_nested_attributes_for :videos, :reject_if => :all_blank
 
-  define_index do
-    indexes :name
-    indexes description
-    indexes videos.name
-
-    has user_id, :as => :user_id
-    has created_at, :as => :created_at
-
-    set_property :delta => true
-  end
 
   default_scope :order => 'techniques.created_at DESC'
 
