@@ -10,7 +10,8 @@ for(var i in metas){
   } 
 }
 
-if (title) postData("data", "http://localhost:3000/save/?name=" + encodeURIComponent(title)
+//http://localhost:3000/save/?name=
+if (title) postData("data", "http://furious-galaxy-789.heroku.com/save/?name=" + encodeURIComponent(title)
                                + "&url=" + encodeURIComponent(location.href), 
                                (function(){
                                   document.body.removeChild(document.getElementById(fname)); 
