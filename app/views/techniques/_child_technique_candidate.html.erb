@@ -4,6 +4,6 @@
     <div class='thumb_name'>
       <%= link_to child.name, technique_relationships_path(
                 :technique_relationship => {:child_id => child.id, :parent_id => parent.id}, 
-                :origin => 'parent'), :remote => true, :method => :post %>
+                :origin => 'parent'), :title => "#{child.name}", :remote => true, :method => :post %>
     </div>
   </div>
