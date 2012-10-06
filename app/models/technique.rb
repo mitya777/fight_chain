@@ -13,9 +13,10 @@ class Technique < ActiveRecord::Base
   has_many :videos
   accepts_nested_attributes_for :videos, :reject_if => :all_blank
 
+  has_one :favorite_relationship, :foreign_key => "technique_id", :dependent => :destroy
+
 
   default_scope :order => 'techniques.created_at DESC'
-
 
   def possible_parents(user)
       user.techniques - (self.parents + [self])

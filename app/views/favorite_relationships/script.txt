@@ -1,0 +1,50 @@
+Intro
+
+	Hi guys, thank you for taking time out of your busy day to check out fightchain.com. 
+
+	My name is Dmitriy Fabrikant.
+	I'm a black belt under Roberto Maia and I've been training Brazilian Jiu Jitsu for about eight years.
+
+	In that time, to improve, I've watched a lot of video of techniques on youtube.
+
+	As most of you know though, effective jiu jitsu is not about executing one technique at a time, but chaining techniques together until you force your opponent into a mistake.
+
+	I built this tool to organize the videos of techniques I watched in the same way that I would chain them together while rolling.
+
+	Let me show you a simple example to demonstrate.
+
+	One of the first technique chains I learned was armbar from closed guard, to triangle, to omoplata.
+
+
+	<go through chain>
+
+	You can see the armbar being demonstrated here. 
+
+	It would be great if after watching this armbar video we could be reminded of what the next move in the chain is and watch a video of that.
+
+	You can do that here under "Chain Forwards"
+
+	<click through>
+
+	This is a nice reference for watching a video of whatever technique I am working on, the techniques which lead up to that, as well as seeing which moves I can move on to, to keep my opponent on the defense.
+
+
+	Let me show you how these videos got here by chaining an omoplata SWEEP on to this omoplata submission.
+
+	<front page>
+
+	When you first signup you should be greeted by this screen.
+
+	Click and Drag this bookmarklet to your browser bar.
+
+	Now let's go find another technique to insert into my game.
+
+	This is just a prototype on top of which I will be making lots of improvements hopeuflly with your feedback.
+
+	Let me know what you think at fightchain@gmail.com
+
+
+
+
+	
+

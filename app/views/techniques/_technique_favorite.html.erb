@@ -1,0 +1,4 @@
+<% content_for :x do %>
+    <%= link_to "x", favorite_relationship_path(favorite_rel, :page => params[:page]), 
+                     :class => "remove_relative", :method => :delete, :remote => :true %>
+<% end %>

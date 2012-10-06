@@ -1,0 +1,9 @@
+<h1><%= "#{current_user.name}'s Favorites" %></h1>
+
+  <%= will_paginate @favorite_relationships %>
+  <br />
+  <div class="techniques">
+    <%= render 'favorites' %>
+  </div>
+  <br />
+  <%= will_paginate @favorite_relationships %>

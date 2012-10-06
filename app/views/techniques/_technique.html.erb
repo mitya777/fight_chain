@@ -6,6 +6,7 @@
     <td>
         <ul>
             <li><strong> <%= technique.name %> </strong><%= link_to "(edit)", edit_technique_path(technique) %> </li>
+            <li><%= link_to "Favorite", favorite_relationships_path(:technique_id => technique), :method => :post %> 
             <li> <%= technique.description %> </li>
         </ul>
     </td>

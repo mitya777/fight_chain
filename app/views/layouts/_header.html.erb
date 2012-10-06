@@ -8,8 +8,13 @@
 
     <% if signed_in? %>
 
+      <li><%= link_to favorites_techniques_path do %>
+        F<span>a</span>vorites
+      <%end%>
+      </li>
+
       <li><%= link_to techniques_path do %>
-        H<span>o</span>me
+        T<span>e</span>chniques
       <%end%>
       </li>
 

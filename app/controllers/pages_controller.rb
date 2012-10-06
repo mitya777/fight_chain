@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     @title = "Home"
     if signed_in?
-      redirect_to :controller => "users", :action => "show", :id => current_user.id
+      redirect_to :controller => "techniques", :action => "index" 
     end
   end
 

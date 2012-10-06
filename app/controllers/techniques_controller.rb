@@ -22,6 +22,16 @@ class TechniquesController < ApplicationController
     end
   end
 
+  def favorites
+  #two database calls here? maybe derive favorites from favorite relationships in memory instead?
+    @favorite_relationships = current_user.favorite_relationships.paginate :page => params[:page], 
+                                                           :per_page => 9, :order => "created_at DESC"
+    respond_to do |format|
+      format.html
+      format.js 
+    end
+  end
+
   def show
     @technique = Technique.find(params[:id]) 
     @title = @technique.name

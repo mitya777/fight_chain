@@ -1,0 +1,5 @@
+
+
+$('div.pagination').html('<%= escape_javascript( will_paginate @favorite_relationships)%>');
+  
+$('div.techniques').html('<%= escape_javascript( render :partial => 'favorites')%>');

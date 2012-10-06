@@ -1,0 +1,9 @@
+
+<!-- this is opposed to child and parent candidate, here we are dealing with the relationship not the technique -->
+<% technique = favorite_rel.technique %>
+<div id = "favorite_technique_<%= technique.id %>" class = "technique_thumb shadow">
+  <%= link_to "x", favorite_relationship_path(favorite_rel), :class => "remove_relative", :method => :delete, :remote => :true %>
+  <%= render :partial => 'videos/video', :locals => {:video => technique.videos.first, 
+                                                     :video_height => 122, :video_width => 150} %>
+  <%= link_to technique.name, technique, :class => "thumb_name", :title => "#{technique.name}" %>
+</div>

@@ -1,3 +1,4 @@
+
 $('div.pagination').html('<%= escape_javascript(will_paginate)%>');
 $('div.techniques').html( 
   '<%= escape_javascript(render :partial => 'technique_thumb', :collection => @techniques, :as => :technique)%>'); 

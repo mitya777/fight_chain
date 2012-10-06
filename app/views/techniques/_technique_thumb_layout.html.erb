@@ -1,0 +1,9 @@
+
+<div id = "technique_<%= technique.id %>" class = "technique_thumb shadow">
+  <%= yield(:x) if content_for?(:x)%>
+  <%= render :partial => 'videos/video', :locals => {:video => technique.videos.first, 
+                                                     :video_height => 122, :video_width => 150} %>
+  <%= content_for?(:name) ? yield(:name) : 
+                            (link_to technique.name, technique, 
+                                           :class => "thumb_name", :title => "#{technique.name}") %>
+</div>

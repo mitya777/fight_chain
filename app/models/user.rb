@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :techniques
+  has_many :favorite_relationships, :foreign_key => "user_id", :dependent => :destroy
+  has_many :favorites, :through => :favorite_relationships, :source => :technique, :order => "created_at DESC"
 
   email_regex =/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

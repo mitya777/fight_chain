@@ -1,0 +1,6 @@
+
+<% @favorite_relationships.each do |fr| %> 
+  <%= render :partial => 'techniques/technique_favorite', 
+             :locals => {:favorite_rel => fr, :technique => fr.technique},
+             :layout => 'techniques/technique_thumb_layout', %>
+<% end %>

@@ -1,24 +1,26 @@
 SampleApp::Application.routes.draw do
 
-  resources :techniques do
-    member do
-      get 'add_parent'
-      get 'add_child'
-    end
-  end
 
   resources :users do
     resources :techniques 
   end
+  
+  resources :techniques do
+    collection do
+      get 'favorites'
+    end
+  end
 
   get "sessions/new"
 
-  resources :technique_relationships
+  resources :favorite_relationships, :only => [:create, :destroy]
+  resources :technique_relationships, :only => [:new, :create, :destroy]
   resources :users
   resources :techniques
   resources :videos
   resources :sessions, :only => [:new, :create, :destroy]
  
+  match '/chains', :to => 'techniques#chains'
   match '/save', :to => 'techniques#save'
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
