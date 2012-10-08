@@ -272,7 +272,7 @@ div.techniques div.technique_thumb {
   border: 1px solid black;
   margin: 0em 1em 1em 1em;
   width: 150px;
-  height: 150px;
+  height: 180px;
   overflow: hidden;
   font-size: small;
   position: relative;
@@ -308,7 +308,7 @@ div.technique_thumb {
   border: 1px solid black;
   margin: 0em 1em 1em 1em;
   width: 150px;
-  height: 150px;
+  height: 180px;
   overflow: hidden;
   font-size: small;
   position: relative;
@@ -346,7 +346,7 @@ div.technique_candidate {
   border: 1px solid black;
   margin: 0em 1em 1em 1em;
   width: 150px;
-  height: 150px;
+  height: 180px;
   overflow: hidden;
   font-size: small;
   position: relative;
