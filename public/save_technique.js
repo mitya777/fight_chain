@@ -11,7 +11,7 @@ for(var i in metas){
 }
 
 //http://localhost:3000/save/?name=
-if (title) postData("data", "http://fightchain.heroku.com/save/?name=" + encodeURIComponent(title)
+if (title) postData("data", "http://fightchain.com/save/?name=" + encodeURIComponent(title)
                                + "&url=" + encodeURIComponent(location.href), 
                                (function(){
                                   document.body.removeChild(document.getElementById(fname)); 
