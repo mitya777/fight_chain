@@ -1,0 +1,46 @@
+//this has the same structure as add_child or add_parent.js REFACTOR todo
+if(!$('.backdrop').length){
+  $('body').append('<div class = "backdrop"></div>');
+  $('.backdrop').click(function(){
+    if($('.box').length) $('.box').remove();
+    $(this).remove();
+  });
+};
+
+if(!$('.box').length){
+  $('body').append('<div class = "box"><div class = "close">close</div>This is the lightbox</div>');
+}
+$('.box').html(
+  '<h2>Share <%= escape_javascript(@technique.name) %></h2>' +
+  '<%= escape_javascript(render :partial => "share_form") %>'
+);
+
+$('.fightbox_close').click(function(){
+  $('.box').remove();
+  $('.backdrop').remove();
+});
+
+var $position = $("select#technique_position");
+var $skill = $("select#technique_skill");
+
+function updateSkillsSelect(position){
+    $.get("<%= update_skills_path %>?position=" + position, function(options){
+        console.log(options);  
+        $skill.html(options);
+    });
+}
+
+$position.change(function(event){
+    console.log("select change", event.target.value);
+    updateSkillsSelect(event.target.value);
+});
+
+//validate share modal
+$("input#technique_submit").click(function(event){
+    if(!$position.val() || !$skill.val()){
+        event.preventDefault();
+        event.stopPropagation();
+        alert("Select a position and type from dropdowns.");
+        return;
+    }
+});

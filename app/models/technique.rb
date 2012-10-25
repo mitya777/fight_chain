@@ -1,5 +1,5 @@
 class Technique < ActiveRecord::Base
-  attr_accessible :position, :type
+  attr_accessible :position, :skill
 
   belongs_to :user
 

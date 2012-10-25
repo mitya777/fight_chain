@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
 
-  get '/update_types', :to => 'techniques#update_types', :as => 'update_types'
+  get '/update_skills', :to => 'techniques#update_skills', :as => 'update_skills'
 
   resources :users do
     resources :techniques 

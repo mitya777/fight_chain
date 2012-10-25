@@ -1,4 +1,6 @@
 class TechniquesController < ApplicationController
+  include TechniquesHelper
+
   before_filter :authenticate, :only => [:index, :new, :create, :destroy, :save]
 
   def new
@@ -72,34 +74,22 @@ class TechniquesController < ApplicationController
 
   def share
     @technique = Technique.find_by_id params[:id]
-    @positions = ["Takedown", "Closed_Guard", "Open_Guard", "Half_Guard", "Side_Mount", "Mount", "North_South", "Back_Mount"]
-    #@types = ["leg-attack", "throw"]
+    @positions = getPositions
+    #@skills = ["leg-attack", "throw"]
+    position = @technique[:position]
+    skill = @technique[:skill]
+    @skills = getSkills(position)[1..-1] if position
+    Rails.logger.debug @technique[:skill]
     respond_to do |format|
       format.html {render 'share'}
       format.js {render 'share'}
     end 
   end
 
-    def update_types
-        Rails.logger.debug params[:position]
-        positions = {
-            "takedown" => ["leg-attack", "throw"],
-            "guard" => ["sweep", "pass", "submission"],
-            "mount" => ["submission", "transition"]  
-        }
-        position = params[:position]
-        if position == "Takedown" 
-          position = "takedown"  
-        elsif ["Closed_Guard", "Open_Guard", "Half_Guard"].include? position 
-          position = "guard"
-        elsif ["Side_Mount", "Mount", "North_South", "Back_Mount"].include? position 
-          position = "mount" 
-        end
-        Rails.logger.debug position
-        @types = positions[position] || ["empty"]
-        @types.unshift ["- select -", ""]
-        Rails.logger.debug @types
-        render :layout => false
-    end  
+  def update_skills
+    position = params[:position]
+    @skills = getSkills(position)
+    render :layout => false
+  end  
 
 end
