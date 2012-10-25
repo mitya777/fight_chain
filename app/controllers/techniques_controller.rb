@@ -65,4 +65,41 @@ class TechniquesController < ApplicationController
     end
   end
 
+  def library
+    @techniques = Technique.where "shared != ?", nil
+  end
+
+
+  def share
+    @technique = Technique.find_by_id params[:id]
+    @positions = ["Takedown", "Closed_Guard", "Open_Guard", "Half_Guard", "Side_Mount", "Mount", "North_South", "Back_Mount"]
+    #@types = ["leg-attack", "throw"]
+    respond_to do |format|
+      format.html {render 'share'}
+      format.js {render 'share'}
+    end 
+  end
+
+    def update_types
+        Rails.logger.debug params[:position]
+        positions = {
+            "takedown" => ["leg-attack", "throw"],
+            "guard" => ["sweep", "pass", "submission"],
+            "mount" => ["submission", "transition"]  
+        }
+        position = params[:position]
+        if position == "Takedown" 
+          position = "takedown"  
+        elsif ["Closed_Guard", "Open_Guard", "Half_Guard"].include? position 
+          position = "guard"
+        elsif ["Side_Mount", "Mount", "North_South", "Back_Mount"].include? position 
+          position = "mount" 
+        end
+        Rails.logger.debug position
+        @types = positions[position] || ["empty"]
+        @types.unshift ["- select -", ""]
+        Rails.logger.debug @types
+        render :layout => false
+    end  
+
 end

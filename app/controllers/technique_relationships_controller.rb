@@ -49,4 +49,5 @@ class TechniqueRelationshipsController < ApplicationController
       format.js { params[:origin] == 'parents' ? ( render 'destroy_parent') : (render 'destroy_child')}
     end
   end
+
 end

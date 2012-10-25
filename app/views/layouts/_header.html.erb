@@ -7,6 +7,10 @@
     </li>
 
     <% if signed_in? %>
+      <li><%= link_to library_techniques_path do %>
+        L<span>i</span>brary
+      <%end%>
+      </li>
 
       <li><%= link_to favorites_techniques_path do %>
         F<span>a</span>vorites

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815215028) do
+ActiveRecord::Schema.define(:version => 20121014050829) do
 
   create_table "favorite_relationships", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20110815215028) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "delta",       :default => true, :null => false
+    t.string   "position"
+    t.string   "type"
+    t.integer  "shared"
   end
 
   create_table "users", :force => true do |t|
@@ -54,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20110815215028) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_id"
+    t.string   "source"
   end
 
 end

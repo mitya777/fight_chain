@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
 
+  get '/update_types', :to => 'techniques#update_types', :as => 'update_types'
 
   resources :users do
     resources :techniques 
@@ -8,6 +9,9 @@ SampleApp::Application.routes.draw do
   resources :techniques do
     collection do
       get 'favorites'
+    end
+    collection do
+      get 'library'
     end
   end
 
@@ -20,11 +24,13 @@ SampleApp::Application.routes.draw do
   resources :videos
   resources :sessions, :only => [:new, :create, :destroy]
  
+  match '/share', :to => 'techniques#share', :as => 'share_technique'
   match '/chains', :to => 'techniques#chains'
   match '/save', :to => 'techniques#save'
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+
 
   match '/about', :to  => 'pages#about'
   match '/contact', :to => 'pages#contact'
