@@ -1,3 +1,10 @@
-<%= @techniques.each do %>
-  <%= render :partial => "techniques/techniques" %>
-<% end %>
+<h1>Shared Techniques</h1>
+
+  <%= will_paginate %>
+  <br />
+  <div class="techniques">
+    <%= render :partial => 'technique_thumb', :collection => @techniques, :as => :technique %>
+  </div>
+  <br />
+  <%= will_paginate %>
+

@@ -246,7 +246,7 @@ div.technique {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
-  border: 1px solid black;
+  //border: 1px solid black;
   padding: 1.5em;
   position: relative;
 }
@@ -269,7 +269,7 @@ div.techniques div.technique_thumb {
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-top: 1.5em;
-  border: 1px solid black;
+  //border: 1px solid black;
   margin: 0em 1em 1em 1em;
   width: 150px;
   height: 180px;
@@ -305,7 +305,7 @@ div.technique_thumb {
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-top: 1.5em;
-  border: 1px solid black;
+  //border: 1px solid black;
   margin: 0em 1em 1em 1em;
   width: 150px;
   height: 180px;
@@ -352,11 +352,11 @@ div.technique_candidate {
   position: relative;
 }
 
-.shadow {
+.shadowX {
   -moz-box-shadow: 3px 3px 5px #aaa;
   -webkit-box-shadow: 3px 3px 5px #aaa;
   box-shadow: 3px 3px 5px #aaa;
-  }
+}
 
 .notice a.bookmarklet {color:red;}
 .notice a.bookmarklet:visited {color:red;}

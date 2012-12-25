@@ -41,6 +41,11 @@ class TechniquesController < ApplicationController
 
   def edit
     @technique = Technique.find params[:id]
+    @positions = getPositions
+    #@skills = ["leg-attack", "throw"]
+    position = @technique[:position]
+    skill = @technique[:skill]
+    @skills = getSkills(position)[1..-1] if position
     1.times {@technique.videos.first} #add dynamic video addition functionality
     @title = "Edit Technique"
   end
@@ -68,7 +73,9 @@ class TechniquesController < ApplicationController
   end
 
   def library
-    @techniques = Technique.where "shared != ?", nil
+    @title = "Shared Techniques"
+    @techniques = Technique.where("techniques.shared = 1").paginate :page => params[:page],
+                                                   :per_page => 9, :order => "created_at DESC" 
   end
 
 

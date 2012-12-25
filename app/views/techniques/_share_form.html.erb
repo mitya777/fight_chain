@@ -15,5 +15,7 @@
     <%= tech_form.select :skill, (@skills ? @skills : []) %>
   </div>
 
+  <%= tech_form.hidden_field :shared, :value => 1 %>
+
   <%= tech_form.submit "Share to Academy" %>
 <% end %>

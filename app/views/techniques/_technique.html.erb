@@ -6,9 +6,9 @@
     <td>
         <ul>
             <li><strong> <%= technique.name %> </strong><%= link_to "(edit)", edit_technique_path(technique) %> </li>
-            <li> <%= technique.description %> </li>
+            <li><%= technique.description %></li>
             <li><%= link_to "Favorite", favorite_relationships_path(:technique_id => technique), :method => :post %></li>
-            <li><%= link_to "Share", share_technique_path(:id => technique.id), :remote => true %> </li>
+            <li><%= render :partial => "techniques/share/share", :locals => { :technique => technique} %> </li>
         </ul>
     </td>
   <tr/>
