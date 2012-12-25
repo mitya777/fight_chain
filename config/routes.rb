@@ -1,4 +1,4 @@
-SampleApp::Application.routes.draw do
+FightChain::Application.routes.draw do
 
   get '/update_skills', :to => 'techniques#update_skills', :as => 'update_skills'
 
