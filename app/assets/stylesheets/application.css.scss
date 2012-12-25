@@ -1,6 +1,4 @@
-/*
-*= require_self
-*= require_tree .
-*/
-
-/* rest of file omitted */
+@import "bootstrap";
+@import "pages/home";
+@import "custom";
+@import "fightbox";

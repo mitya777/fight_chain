@@ -1,7 +1,11 @@
+
 //= require jquery
 //= require jquery_ujs
 //= require_self
-//= require_tree .
+//= require bootstrap
+//= require lodash
+//= require backbone
+
 
 
 // Place your application-specific JavaScript functions and classes here
