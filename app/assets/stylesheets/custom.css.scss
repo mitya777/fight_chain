@@ -4,10 +4,6 @@
 
 body{
   background: #ffffff;
-  background-image:url(../images/chain.png);
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-position: left top;
 }
 
 header{
@@ -50,7 +46,7 @@ a:visited {
 
 nav {
   float: right;
-  background-image: url(../images/nav.png);
+  background-image: url(/assets/nav.png);
   height: 50px;
   font-size: 115%;
 }

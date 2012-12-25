@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,13 +9,13 @@ gem 'pg'
 source 'http://rubygems.org'
 
 gem 'gravatar_image_tag', '1.0.0.pre2'
-gem 'will_paginate', '3.0.pre2'
+gem 'will_paginate'
 gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', " ~> 3.1.0"
+  gem 'sass-rails', '3.2.5'
   #gem 'coffee-rails', " ~> 3.1.0"
   gem 'uglifier'
 end
