@@ -1,0 +1,10 @@
+<% if technique.shared == 1  %>
+  <div class="shared-already">
+    <div class="shared-label">Shared:</div>
+    <div class="position">Position: <%= technique.position %></div>
+    <div class="skill">Skill: <%= technique.skill %></div> 
+    <%= link_to "Edit Share", share_technique_path(:id => technique.id), :remote => true %>
+  </div>
+<% else %> 
+  <%= link_to "Share", share_technique_path(:id => technique.id), :remote => true %>
+<% end %>
