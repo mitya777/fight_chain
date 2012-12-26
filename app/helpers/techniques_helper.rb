@@ -7,7 +7,7 @@ module TechniquesHelper
   def getSkills(position)
       positions = {
           "takedown" => ["grips", "offense", "defense"],
-          "guard" => ["sweep", "pass", "submission"],
+          "guard" => ["sweep/back-take", "pass", "submission"],
           "mount" => ["submission", "transition"]  
       }
       if position == "takedown" 

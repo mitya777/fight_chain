@@ -76,6 +76,8 @@ class TechniquesController < ApplicationController
     @title = "Shared Techniques"
     @techniques = Technique.where("techniques.shared = 1").paginate :page => params[:page],
                                                    :per_page => 9, :order => "created_at DESC" 
+    @positions = getPositions
+    
   end
 
 

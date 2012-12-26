@@ -1,51 +1,57 @@
 <header>
-<%= link_to logo, root_path %>
-<nav>
-  <ul>
-    <li><%= link_to root_path do %>
-    <%end%>
-    </li>
-
-    <% if signed_in? %>
-      <li><%= link_to library_techniques_path do %>
-        L<span>i</span>brary
-      <%end%>
-      </li>
-
-      <li><%= link_to favorites_techniques_path do %>
-        F<span>a</span>vorites
-      <%end%>
-      </li>
-
-      <li><%= link_to techniques_path do %>
-        T<span>e</span>chniques
-      <%end%>
-      </li>
-
-      <li><%= link_to current_user do%>
-        P<span>r</span>ofile
-      <%end%>
-      </li>
-
-      <li><%= link_to edit_user_path(current_user) do %>
-        S<span>e</span>ttings
-      <%end%>
-      </li>
-    <%end%>
-
-    <% if signed_in? %>
-      <li>
-        <%= link_to signout_path, :method => :delete do %>
-          S<span>i</span>gn out
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand">
+        Fight Chain
+      </a>
+      <ul class="nav">
+        <li><%= link_to root_path do %>
         <%end%>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to signin_path do %>
-          S<span>i</span>gn in
+        </li>
+
+        <% if signed_in? %>
+          <li><%= link_to library_techniques_path do %>
+            L<span>i</span>brary
+          <%end%>
+          </li>
+
+          <li><%= link_to favorites_techniques_path do %>
+            F<span>a</span>vorites
+          <%end%>
+          </li>
+
+          <li><%= link_to techniques_path do %>
+            T<span>e</span>chniques
+          <%end%>
+          </li>
+
+          <li><%= link_to current_user do%>
+            P<span>r</span>ofile
+          <%end%>
+          </li>
+
+          <li><%= link_to edit_user_path(current_user) do %>
+            S<span>e</span>ttings
+          <%end%>
+          </li>
         <%end%>
-      </li>
-    <% end %>
-  </ul>
-</nav>
+
+        <% if signed_in? %>
+          <li>
+            <%= link_to signout_path, :method => :delete do %>
+              S<span>i</span>gn out
+            <%end%>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to signin_path do %>
+              S<span>i</span>gn in
+            <%end%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 </header>
