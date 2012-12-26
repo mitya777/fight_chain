@@ -101,4 +101,8 @@ class TechniquesController < ApplicationController
     render :layout => false
   end  
 
+  def filter
+    
+  end
+
 end

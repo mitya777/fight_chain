@@ -16,6 +16,9 @@ class Technique < ActiveRecord::Base
 
   has_one :favorite_relationship, :foreign_key => "technique_id", :dependent => :destroy
 
+  has_many :tags_techniques #foreign key?
+  has_many :tags, :through => :tags_techniques 
+
 
   default_scope :order => 'techniques.created_at DESC'
 
