@@ -7,6 +7,7 @@ class Tag < ActiveRecord::Base
     {:name => "butterfly guard", :kind => "position"},
     {:name => "delariva guard", :kind => "position"},
     {:name => "spider guard", :kind => "position"},
+    {:name => "turtle guard", :kind => "position"},
     {:name => "side mount", :kind => "position"},
     {:name => "mount", :kind => "position"},
     {:name => "knee on belly", :kind => "position"},
@@ -21,6 +22,7 @@ class Tag < ActiveRecord::Base
     {:name => "pass", :kind => "skill"},
     {:name => "sweep", :kind => "skill"},
     {:name => "back take", :kind => "skill"},
+    {:name => "transition", :kind => "skill"},
   ]
 
   attr_accessible :description, :name, :kind

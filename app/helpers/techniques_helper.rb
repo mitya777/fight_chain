@@ -1,23 +1,25 @@
 module TechniquesHelper
 
   def getPositions
-    ["takedown", "closed-guard", "open-guard", "half-guard", "side-mount", "mount", "north-South", "back-mount"]
+    positions = Tag.default_tags.select {|tag| tag[:kind] == "position"} 
+    positions.map {|position| position[:name]}
   end
 
   def getSkills(position)
       positions = {
-          "takedown" => ["grips", "offense", "defense"],
-          "guard" => ["sweep/back-take", "pass", "submission"],
+          "standup" => ["grips", "takedown", "takedown defense", "submission"],
+          "guard" => ["sweep", "back take", "pass", "submission"],
           "mount" => ["submission", "transition"]  
       }
-      if position == "takedown" 
-        position = "takedown"  
-      elsif ["closed-guard", "open-guard", "half-Guard"].include? position 
+      #map position to the appropriate skills
+      logger.debug position
+      logger.debug position.split(" ").inspect
+      if position.split(" ").include? "guard"
         position = "guard"
-      elsif ["side-mount", "mount", "north-south", "back-mount"].include? position 
-        position = "mount" 
+      else 
+        position = "mount" unless position == "standup" 
       end
-      Rails.logger.debug position
+      logger.debug position
       skills = positions[position] || ["empty"]
       skills.unshift ["- select -", ""]
   end

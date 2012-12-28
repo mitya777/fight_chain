@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %> 
+    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "fcbookmarklet" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "fcbookmarklet" %>
+    <% unless Rails.env == "development" %>
+      <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35366456-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+      </script>
+    <% end %>
+  </head>
+  <body id="fcbookmarklet_overlay_body">
+    <div id = "fcbookmarklet_popup">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner fc">
+          <a class="brand">
+            Fight Chain
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+    

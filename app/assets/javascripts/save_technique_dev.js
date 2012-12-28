@@ -1,6 +1,24 @@
 (function(){
 
-var fname = (+((''+Math.random()).substring(2))).toString(36);
+
+  var iframe = document.createElement("iframe");
+  iframe.id = "fightchain_savetech";
+  iframe.src = "http://127.0.0.1:3000/savetech";
+  iframe.style.height = "100%";
+  iframe.style.width = "100%";
+  iframe.style.position = "fixed";
+  iframe.style.top = "0px";
+  iframe.style.zIndex = "1000";
+  document.body.appendChild(iframe);
+  
+  //global function accessible from iframe
+  removeFightChainFrame = function(){
+    var frame = document.getElementById("fightchain_savetech");
+    frame.parentNode.removeChild(frame);
+    document.body.removeChild(document.getElementById("fight_chain_script"));
+  }
+
+/*var fname = (+((''+Math.random()).substring(2))).toString(36);
 
 var metas = document.getElementsByTagName("meta");
 for(var i in metas){
@@ -45,4 +63,5 @@ if (title) postData("data", "http://localhost:3000/save/?name=" + encodeURICompo
 
     doc.forms[0].submit();
   }
+*/
 })();

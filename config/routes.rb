@@ -24,6 +24,7 @@ FightChain::Application.routes.draw do
   resources :videos
   resources :sessions, :only => [:new, :create, :destroy]
  
+  match '/savetech', :to => 'techniques#save_tech', :as => 'save_tech' #iframe content
   match '/share', :to => 'techniques#share', :as => 'share_technique'
   match '/chains', :to => 'techniques#chains'
   match '/save', :to => 'techniques#save'

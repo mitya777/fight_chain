@@ -61,6 +61,10 @@ class TechniquesController < ApplicationController
     redirect_to techniques_path
   end
 
+  def save_tech 
+    render :layout => false
+  end
+
   def save
     logger.debug "CURRENT USER: #{current_user}"
     @technique = current_user.techniques.build(:name => params[:name]) 
