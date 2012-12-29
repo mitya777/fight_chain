@@ -11,6 +11,6 @@ $("#fightchain_savetech").ready(function(){
 
   $("html").on("click", function(){
     console.log("fight chain iframe here");
-    top.removeFightChainFrame();
+    //top.removeFightChainFrame();
   });
 });

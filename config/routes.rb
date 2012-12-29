@@ -24,6 +24,7 @@ FightChain::Application.routes.draw do
   resources :videos
   resources :sessions, :only => [:new, :create, :destroy]
  
+  match '/import', :to => 'techniques#import'
   match '/savetech', :to => 'techniques#save_tech', :as => 'save_tech' #iframe content
   match '/share', :to => 'techniques#share', :as => 'share_technique'
   match '/chains', :to => 'techniques#chains'
@@ -31,7 +32,6 @@ FightChain::Application.routes.draw do
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-
 
   match '/about', :to  => 'pages#about'
   match '/contact', :to => 'pages#contact'

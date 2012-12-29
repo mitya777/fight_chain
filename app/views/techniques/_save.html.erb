@@ -1,8 +1,17 @@
-
+<% source = "javascript:"\
+  "(function(){"\
+    "var script_element = document.getElementById('fight_chain_script');"\
+    "if (!script_element){"\
+      "script_element=document.createElement('script');"\
+      "script_element.id='fight_chain_script';"\
+      "script_element.src='#{import_url}';"\
+      "document.body.appendChild(script_element);"\
+    "}"\
+  "})();" %>
 <div>
   Please drag the bookmarklet below to your bookmarks bar and use it to save jiu jitsu videos you come across on youtube!
 </div>
-<a class = "bookmarklet" href = "javascript:(function(){var script_element=document.createElement('script');script_element.id='fight_chain_script';script_element.src=<%= Rails.env.development? ? "'http://localhost:3000" : "'http://fightchain.com" %>/assets/save_technique<%= Rails.env.development? ? "_dev" : "" %>.js?dummy='+Math.random();document.body.appendChild(script_element);})();">Save Technique</a>
+    <a class = "bookmarklet" href = "<%= source %>">Save Technique</a>
 <br />
 <div>
   In the future this bookmarklet can be found on the Settings page.

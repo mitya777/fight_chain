@@ -61,6 +61,10 @@ class TechniquesController < ApplicationController
     redirect_to techniques_path
   end
 
+  def import
+    render :import, :layout => false
+  end
+
   def save_tech 
     render :layout => false
   end
